@@ -1,0 +1,23 @@
+public class Solution {
+	
+	public static boolean checkNumber(int arr[], int x) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+	 	 * Taking input and printing output is handled automatically.
+		*/
+        if(arr.length == 0){
+            return false;
+        }
+        if (arr[0] == x) return true;
+        int[] newArr = new int[arr.length-1];
+        for( int i = 1; i < arr.length; i++){
+            newArr[i-1] = arr[i];
+        }
+        boolean ans = checkNumber(newArr, x);
+        return ans;
+        
+		
+	}
+}
