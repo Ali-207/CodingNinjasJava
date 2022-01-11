@@ -1,0 +1,28 @@
+public class Solution {
+
+	public static int lastIndex(int input[], int x) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+	 	 * Taking input and printing output is handled automatically.
+		*/
+        int ans = lastIndexFind(input, x, 0);
+        return ans;
+	}
+    
+    public static int lastIndexFind(int arr[], int x, int startIndex){
+        int index =-1;
+        if( startIndex == arr.length){
+            return -1;
+        }
+
+        if ( arr[startIndex] == x ){
+            index = startIndex;
+        }
+        int ans = lastIndexFind(arr, x, startIndex+1);
+        return Math.max(index,ans);
+        
+    }
+	
+}
