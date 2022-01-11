@@ -1,0 +1,14 @@
+public class solution {
+
+	public static double findGeometricSum(int k){
+		// Write your code here
+
+        if( k == 0){
+            return 1;
+        }
+        
+        double smallOutput = findGeometricSum(k-1);
+        double last = Math.pow((double)1/2, k);
+        return smallOutput + last;
+	}
+}
