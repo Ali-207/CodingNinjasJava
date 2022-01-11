@@ -1,0 +1,27 @@
+public class Solution {
+
+	public static int firstIndex(int input[], int x) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+	 	 * Taking input and printing output is handled automatically.
+		*/
+        int ans = firstIndexInPlace(input,x,0);
+        return ans;
+        
+		
+	}
+    public static int firstIndexInPlace(int arr[], int x , int startIndex){
+        
+        if(startIndex == arr.length){
+            return -1;
+        }
+        if( arr[startIndex] == x){
+            return startIndex;
+        }
+        int index = firstIndexInPlace(arr, x, startIndex + 1);
+        return index;
+    }
+	
+}
