@@ -1,0 +1,23 @@
+public class Solution {
+
+	public static int sum(int arr[]) {
+		/* Your class should be named Solution
+		 * Don't write main().
+		 * Don't read input, it is passed as function argument.
+		 * Return output and don't print it.
+	 	 * Taking input and printing output is handled automatically.
+		*/
+        int total = 0;
+        if( arr.length == 0){
+            return 0;
+        }
+       	int[] newArr = new int[arr.length-1];
+        for( int i = 1; i < arr.length; i++)
+        {
+            newArr[i-1] = arr[i];
+        }
+        total = arr[0] + sum(newArr);
+        return total;
+		
+	}
+}
