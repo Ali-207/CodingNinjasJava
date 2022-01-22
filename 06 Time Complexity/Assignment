@@ -1,0 +1,102 @@
+//FIND UNIQUE ELEMENT
+
+public static int findUnique(int[] arr) {
+		//Your code goes here
+        int unique = 0;
+        for(int n : arr){
+            unique ^= n;
+        }
+        return unique;
+	}
+  
+  
+  //FIND DUPLICATE IN AN ARRAY
+  
+  public static int findDuplicate(int[] arr) {
+		//Your code goes here
+        int i = 0;
+
+        while( i < arr.length){
+            int correct = arr[i];
+            if( arr[i] != arr[correct]){
+                int temp = arr[i];
+                arr[i] = arr[correct];
+                arr[correct] = temp;
+            }else{
+                i++;
+            }
+        }
+        for(int j=0; j < arr.length; j++){
+            if(arr[j] != j){
+                return arr[j];
+            }
+        }
+        return -1;
+	}
+  
+  //PAIR SUM IN AN ARRAY
+  public static int pairSum(int[] arr, int num) {
+		//Your code goes here
+        int count = 0;
+        for(int i = 0; i<arr.length; i++){
+            for(int j = i+1; j<arr.length; j++){
+                if ((arr[i] + arr[j])==num){
+                    count++;
+                }
+            }
+        }
+        return count;
+	
+	}
+  
+  //TRIPLET SUM 
+  public static int tripletSum(int[] ar, int sum) {
+		//Your code goes here
+        int counter=0;
+		Arrays.sort(ar);
+		int start,mid,end=ar.length-1;
+		for(start=0;start<ar.length-1;start++)
+		{
+			mid = start+1;
+			while(mid<end)
+			{
+				int val = ar[start]+ar[mid]+ar[end];
+				if(val==sum)
+				{
+					counter++;
+					mid++;
+					end--;
+				}
+				else if(val<sum)
+					mid++;
+				else
+					end--;
+			}
+		}
+	  return counter;
+	}
+  
+  //ROTATE ARRAY
+  
+  public static void rotate(int[] arr, int d) {
+    	//Your code goes here
+        int len = arr.length;
+        int[] temp = new int[d];
+        
+        for(int i = 0; i<d; i++){
+            temp[i] = arr[i];
+        }
+        
+        for(int i = d; i<len; i++){
+            arr[i-d] = arr[i];
+        }
+        
+        int k = 0;
+        
+        for(int i = len-d; i<len; i++){
+            arr[i] = temp[k];
+            k++;
+        }
+    }
+  
+  
